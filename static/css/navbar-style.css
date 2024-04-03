@@ -1,0 +1,41 @@
+.navbar {
+  padding: 0.8rem 1rem;
+  background: linear-gradient(135deg, #6e48aa, #9d50bb); /* Updated gradient for a more modern look */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow for a subtle depth */
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* More pronounced shadow for better legibility */
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  color: white;
+  margin-left: 1rem;
+  transition: color 0.2s;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+  color: #ffffff; /* Brighter color on hover for better visibility */
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle background highlight */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  color: #FFF; /* More vibrant color for the active page */
+  background-color: rgba(255, 255, 255, 0.3); /* Highlight active page with a distinct background */
+}
+
+.navbar-nav .dropdown-menu {
+  background-color: #9d50bb; /* Harmonizing dropdown with the navbar gradient */
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for floating effect */
+}

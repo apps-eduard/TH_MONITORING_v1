@@ -1,0 +1,84 @@
+.card {
+  border-radius: 25px;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Ensures the gradient is within the border radius */
+  box-shadow: 5px 10px 18px #888888;
+  transition: transform 0.3s;
+  margin-top: 20%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-header {
+  padding: 20px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(145deg, #9c27b0, #e91e63); /* Default gradient */
+}
+
+.card-body {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-section {
+  margin: 10px 0;
+}
+
+.icon-color-date,
+.icon-color-time,
+.icon-color-temp,
+.icon-color-humid {
+  color: #333333; /* or any other color you prefer */
+  margin-right: 10px;
+}
+
+/* Assuming you are using Font Awesome icons */
+.fas {
+  color: #333; /* Default icon color, adjust as needed */
+}
+
+/* Color for specific icons based on their function */
+.fa-calendar-alt { /* Calendar icon */
+  color: #ff851b; /* Example color */
+}
+
+.fa-temperature-low { /* Temperature icon */
+  color: #007bff; /* Example color */
+}
+
+.fa-tint { /* Humidity icon */
+  color: #20c997; /* Example color */
+}
+
+/* Ensure labels for icons are visible */
+.card-body p {
+  color: #333; /* Color for text, ensure it's visible against the background */
+  margin: 0.5rem 0; /* Provide some spacing around the paragraph text */
+}
+
+/* To specifically target the labels if they have a unique class, you might do something like this: */
+.icon-label {
+  display: block; /* Makes sure the label is on a new line if not already */
+  color: #333; /* Ensures the label is visible; change the color as needed */
+}
+
+
+/* Specific gradients for each category */
+[data-category="qec"] .card-header {
+  background: linear-gradient(145deg, #ff6fd8, #3813c2); /* Adjust the colors to match the Qec gradient */
+}
+
+[data-category="qta"] .card-header {
+  background: linear-gradient(145deg, #fbc531, #e84118); /* Adjust the colors to match the Qta gradient */
+}
+
+[data-category="qsc"] .card-header {
+  background: linear-gradient(145deg, #00a8ff, #9c88ff); /* Adjust the colors to match the Qsc gradient */
+}

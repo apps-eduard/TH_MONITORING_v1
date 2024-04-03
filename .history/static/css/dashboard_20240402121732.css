@@ -1,0 +1,60 @@
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Ensures that the link does not change color */
+  }
+  
+  .card {
+    border-radius: 25px; /* Rounded corners */
+    padding: 1rem;
+    margin: 1rem 0;
+    color: white; /* Text color */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25); /* Card shadow */
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: center; /* Centered text */
+  }
+  
+  .card-body {
+    text-align: center; /* Centered text */
+  }
+  
+  /* Specific styles for each card based on category name */
+  .card[data-category="qec"] {
+    background: linear-gradient(130deg, #8E2DE2, #4A00E0); /* Gradient for Qec */
+  }
+  
+  .card[data-category="qta"] {
+    background: linear-gradient(130deg, #F7971E, #FFD200); /* Gradient for Qta */
+  }
+  
+  .card[data-category="qsc"] {
+    background: linear-gradient(130deg, #11998e, #38ef7d); /* Gradient for Qsc */
+  }
+  
+  .icon-color-date,
+  .icon-color-temp,
+  .icon-color-time,
+  .icon-color-humid {
+    font-size: 2rem; /* Larger icons */
+  }
+  
+  .card-section {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Aligns content vertically */
+    gap: 0.5em; /* Spacing between icon and text */
+  }
+  
+  .margin-top-icon {
+    margin-top: 0.5em; /* Adjust as necessary */
+  }
+  

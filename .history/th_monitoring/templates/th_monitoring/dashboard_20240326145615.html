@@ -1,0 +1,12 @@
+{% comment %} {% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>System Monitoring Dashboard</h2>
+    <p>CPU Usage: {{ data.cpu_usage }}</p>
+    <p>RAM Usage: {{ data.ram_usage }}</p>
+    <p>Disk Space: {{ data.disk_space }}</p>
+    <p>Network Status: {{ data.network_status }}</p>
+    <p>Number of Active Users: {{ data.number_of_active_users }}</p>
+</div>
+{% endblock %} {% endcomment %}

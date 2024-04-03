@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Latest Data{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="container">
+    <div class="row justify-content-center">
+        {% for category, data in latest_data.items %}
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'th_monitoring:trend_page' %}?category={{ category }}" class="card-link styled-card">
+                    <div class="card h-100">
+                        <div class="card-header styled-card-header">
+                            {{ category|capfirst }} Server Room
+                        </div>
+                        <div class="card-body styled-card-body">
+                            <div class="card-section styled-card-section">
+                                <i class="fas fa-calendar-alt fa-2x icon-color-date"></i>
+                                <p>{{ data.date|date:"m/d/Y" }}</p>
+                                <i class="fas fa-temperature-low fa-2x icon-color-temp margin-top-icon"></i>
+                                <p>{{ data.temperature }}°C</p>
+                            </div>
+                            <div class="card-section styled-card-section">
+                                <i class="fas fa-clock fa-2x icon-color-time"></i>
+                                <p>{{ data.time }}</p>
+                                <i class="fas fa-tint fa-2x icon-color-humid margin-top-icon"></i>
+                                <p>{{ data.humidity }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+.styled-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .styled-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .styled-card-header {
+    background: linear-gradient(145deg, #9c27b0, #e91e63);
+    color: #fff;
+    padding: 20px;
+    font-size: 1.4rem;
+  }
+  
+  .styled-card-body {
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .styled-card-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .icon-color-date,
+  .icon-color-temp,
+  .icon-color-time,
+  .icon-color-humid {
+    color: #6c757d; /* This is a default color, you can change it */
+    margin-right: 10px;
+  }
+  
+  .margin-top-icon {
+    margin-top: 10px;
+  }
+  
+  /* Your existing CSS for .card, .card-header, .card-body, etc. */
+  
+  /* Additional styles for icon-color-xxx classes if needed */
+  

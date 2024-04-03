@@ -1,0 +1,66 @@
+.card {
+    border-radius: 30px; /* Rounded corners at the top */
+    padding: 20px;
+    color: white; /* Text color */
+    font-family: 'Arial', sans-serif; /* Font family */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Box shadow for depth */
+    margin: 20px; /* Spacing around cards */
+    width: 250px; /* Card width */
+    height: 400px; /* Card height */
+    display: inline-block; /* To display cards in a row */
+  }
+  
+  .card-header {
+    font-size: 1.5em; /* Larger font size for the header */
+    font-weight: bold; /* Bold font weight for the header */
+    margin-bottom: 15px; /* Space below the header */
+  }
+  
+  .card-icon {
+    font-size: 2em; /* Larger size for the icon */
+    margin-bottom: 15px; /* Space below the icon */
+  }
+  
+  .card-content {
+    font-size: 1em; /* Regular font size for content */
+  }
+  
+  /* Gradient backgrounds for the cards */
+  .card-one {
+    background: linear-gradient(145deg, #9c27b0, #e91e63); /* Purple to pink gradient */
+  }
+  
+  .card-two {
+    background: linear-gradient(145deg, #ff9800, #ffc107); /* Orange to amber gradient */
+  }
+  
+  .card-three {
+    background: linear-gradient(145deg, #4caf50, #8bc34a); /* Green to light green gradient */
+  }
+  
+  /* You can use these CSS classes with your HTML like this:
+  <div class="card card-one">
+    <div class="card-icon">🌐</div>
+    <div class="card-header">Card One</div>
+    <div class="card-content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+  </div>
+  
+  <div class="card card-two">
+    <div class="card-icon">💎</div>
+    <div class="card-header">Card Two</div>
+    <div class="card-content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+  </div>
+  
+  <div class="card card-three">
+    <div class="card-icon">🚀</div>
+    <div class="card-header">Card Three</div>
+    <div class="card-content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+  </div>
+  */
+  

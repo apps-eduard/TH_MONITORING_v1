@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-body">
+            <h2 class="card-title text-center">Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Username:</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">Password:</label>
+                    {{ form.password }}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <!-- Add a Register button/link -->
+            <!-- With namespace 'user_profile' -->
+            <a href="{% url 'user_profile:register' %}" class="btn btn-secondary btn-block">Register</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Latest Data{% endblock %}
+
+{% block content %}
+
+    <style>
+       /* Main container adjustments for a full center alignment */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use full height to center vertically */
+}
+
+/* Card general styling */
+.card {
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Subtle shadow */
+    overflow: hidden; /* Ensure the inside elements conform to the card shape */
+    transition: transform 0.3s; /* Smooth transform on hover */
+}
+
+/* Card hover effect for interactivity */
+.card:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Card Header styles */
+.card-header {
+    font-size: 1.2em;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em;
+    border: none; /* Remove border */
+}
+
+/* Dynamic gradient backgrounds based on category */
+.card[data-category="category1"] .card-header {
+    background: linear-gradient(135deg, #9F8CD3 30%, #5E68C4 100%);
+}
+.card[data-category="category2"] .card-header {
+    background: linear-gradient(135deg, #F7971E 30%, #FFD200 100%);
+}
+.card[data-category="category3"] .card-header {
+    background: linear-gradient(135deg, #00C9FF 30%, #92FE9D 100%);
+}
+
+/* Card Body styles */
+.card-body {
+    display: flex;
+    padding: 1em;
+    background-color: #ffffff; /* White background for content */
+    color: #333333; /* Dark color for text */
+}
+
+/* Card Section adjustments */
+.card-section {
+    flex: 1; /* Equal width for all sections */
+    margin: 0.5em; /* Spacing between sections */
+}
+
+/* Icons color adjustment to match the card header gradient */
+.icon-color-date { color: #9F8CD3; }
+.icon-color-time { color: #F7971E; }
+.icon-color-temp { color: #00C9FF; }
+.icon-color-humid { color: #92FE9D; }
+
+.fa-2x {
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph adjustments for better readability */
+.card-section p {
+    margin-top: 0.5em; /* Space between icon and text */
+    font-size: 0.9em; /* Smaller font size */
+    color: #666666; /* Lighter text color for less emphasis */
+}
+
+/* Card link adjustments for a better hover effect */
+.card-link {
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+.card-link:hover {
+    color: #0056b3; /* Change color on hover */
+}
+
+    </style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        {% for category, data in latest_data.items %}
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'th_monitoring:trend_page' %}?category={{ category }}" class="card-link">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            {{ category|capfirst }} Server Room
+                        </div>
+                        <div class="card-body">
+                            <div class="card-section">
+                                <i class="fas fa-calendar-alt fa-2x icon-color-date"></i>
+                                <p>{{ data.date|date:"m/d/Y" }}</p>
+                                <i class="fas fa-temperature-low fa-2x icon-color-temp margin-top-icon"></i>
+                                <p>{{ data.temperature }}°C</p>
+                            </div>
+                            <div class="card-section">
+                                <i class="fas fa-clock fa-2x icon-color-time"></i>
+                                <p>{{ data.time }}</p>
+                                <i class="fas fa-tint fa-2x icon-color-humid margin-top-icon"></i>
+                                <p>{{ data.humidity }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

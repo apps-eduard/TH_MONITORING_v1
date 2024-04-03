@@ -1,0 +1,96 @@
+.card {
+    border: 1px solid #e0e0e0; /* Light grey border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners for a modern feel */
+    padding: 20px; /* Spacing inside the card */
+    background: #ffffff; /* White background */
+    margin: 10px; /* Spacing between cards */
+  }
+  
+  .card-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px; /* Space between header and content */
+    color: #333333; /* Dark grey for better readability */
+  }
+  
+  .card-content {
+    font-size: 1em;
+    color: #333333;
+  }
+  
+  .status-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; /* Circular shape */
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .status-indicator.online {
+    background: #4CAF50; /* Green for online status */
+  }
+  
+  .status-indicator.offline {
+    background: #f44336; /* Red for offline status */
+  }
+  
+  .temperature,
+  .humidity {
+    font-weight: bold;
+    display: block; /* Each on its own line */
+    margin: 5px 0; /* Margin for spacing */
+  }
+  
+  .temperature-icon,
+  .humidity-icon {
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  /* Temperature color based on value */
+  .temperature-hot {
+    color: #ff5722; /* Orange for hot temperatures */
+  }
+  
+  .temperature-cold {
+    color: #2196F3; /* Blue for cold temperatures */
+  }
+  
+  /* Humidity color based on value */
+  .humidity-high {
+    color: #2196F3; /* Blue for high humidity */
+  }
+  
+  .humidity-low {
+    color: #ffc107; /* Amber for low humidity */
+  }
+  
+  .date-time {
+    font-size: 0.85em;
+    color: #757575; /* Grey for less emphasis */
+    margin-top: 10px; /* Spacing from main content */
+  }
+  
+  /* If using icons from a web font, e.g., FontAwesome */
+  .icon {
+    font-family: 'FontAwesome';
+  }
+  
+  /* Example of how you could use these classes in HTML:
+  <div class="card">
+    <div class="card-header">
+      Qec Server Room
+      <span class="status-indicator online"></span>
+    </div>
+    <div class="card-content">
+      <span class="temperature-icon icon">&#xf2c9;</span>
+      <span class="temperature temperature-hot">24.20°C</span>
+      <span class="humidity-icon icon">&#xf043;</span>
+      <span class="humidity humidity-high">43.30%</span>
+      <div class="date-time">02/07/2036 9:28 a.m.</div>
+    </div>
+  </div>
+  */
+  

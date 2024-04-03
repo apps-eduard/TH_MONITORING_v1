@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Site{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+
+
+        .navbar {
+          padding: 0.5rem 1rem; /* Adjust the padding */
+          background: #f8f9fa; /* Light background */
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+          transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+      
+        .navbar-brand {
+          font-size: 1.25rem; /* Slightly larger brand size */
+          font-weight: bold; /* Make the brand name bold */
+          color: #333; /* Brand color for better visibility */
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
+        }
+      
+        .navbar-toggler {
+          border-color: #ddd; /* Lighter border color for the toggle button */
+        }
+      
+        .navbar-nav .nav-link {
+          font-size: 1rem; /* Adjust link size for better readability */
+          font-weight: bold; /* Bold font for nav links */
+          color: #555; /* Slightly darker color for contrast */
+        }
+      
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+          color: #1a73e8; /* Highlight color for hover and focus */
+        }
+      
+        .navbar-nav .dropdown-menu {
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to dropdown for depth */
+        }
+      
+        /* Change navbar style on scroll */
+        document.addEventListener('scroll', function () {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) { /* Adjust the value as needed */
+            navbar.style.backgroundColor = '#fff'; /* Solid color on scroll */
+          } else {
+            navbar.style.backgroundColor = 'transparent'; /* Revert to transparent */
+          }
+        });
+      </style>
+      
+    {% if show_navbar %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Remote Server Room Temperature and Humidity Monitoring System using IoT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ user.get_full_name|default:user.email }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'user_profile:edit-profile' %}">Edit Profile</a>
+                            <a class="dropdown-item" href="{% url 'user_profile:logout' %}">Logout</a>
+                            <a class="dropdown-item" href="http://localhost:8000/admin/">Admin</a>
+                        </div>
+                    </li>
+                {% else %}
+                    {% comment %} <li class="nav-item">
+                        {% if user.is_authenticated %}
+                        <a class="nav-link"  href="{% url 'user_profile:edit-profile' %}" onclick="console.log('User is authenticated')">Edit Profile</a>
+                        {% else %}
+                            <a class="nav-link"  href="{% url 'user_profile:edit-profile' %}" onclick="console.log('User is not authenticated')">Edit Profile</a>
+                        {% endif %}
+                    </li> {% endcomment %}
+                    <li class="nav-item">
+                        <a class="nav-link"  href="{% url 'user_profile:edit-profile' %}" onclick="console.log('User is not authenticated')">Edit Profile</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% endif %}
+
+{% block content %}
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

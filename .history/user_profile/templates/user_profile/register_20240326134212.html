@@ -1,0 +1,52 @@
+<!-- user_profile/register.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row"> <!-- Add row class here -->
+        <!-- Wrap form within a column div -->
+        <div class="col-md-4 mx-auto">
+            <!-- Bootstrap card container -->
+            <div class="card">
+                <!-- Card header (optional) -->
+                <div class="card-header">
+                    <h2>Register</h2>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+                <!-- Card footer (optional) -->
+                <div class="card-footer text-center">
+                    
+                    <a href="{% url 'user_profile:login' %}" class="btn btn-secondary">Login here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Register</button>
+        <!-- Add a Cancel button/link -->
+        <a href="{% url 'user_profile:login' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %} {% endcomment %}

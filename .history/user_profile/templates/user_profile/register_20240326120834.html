@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Register</button>
+        <!-- Corrected Cancel button/link -->
+        <a href="{% url 'login' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

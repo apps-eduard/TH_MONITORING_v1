@@ -1,0 +1,120 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .dashboard-container {
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* Gradient background */
+    min-height: 100%; /* Ensure it covers the whole page */
+  }
+  
+.chart-container {
+    width: 80vw;
+    height: auto; /* Set to auto to allow content to determine height */
+    max-height: 65vh; /* Set a max height to avoid overflow */
+    margin-top: 20px;
+    background: whitesmoke;
+    padding: 0.5em;
+    border-radius: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    margin-top: 1em;
+    padding: 20px;
+    box-sizing: border-box; 
+    overflow: hidden; 
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* Gradient background */
+
+}
+
+canvas {
+    width: 100%; /* Ensure canvas fills the container width */
+    height:100%; /* Ensure canvas fills the container height */
+}
+
+.form-inline {
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.btn {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.btn-primary {
+    background-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+}
+.btn-secondary {
+    background-color: #6c757d;
+}
+.btn-secondary:hover {
+    background-color: #545b62;
+    box-shadow: 0 4px 8px rgba(108,117,125,0.3);
+}
+input[type=date] {
+    border: 1px solid #ced4da;
+    border-radius: 30px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+input[type=date]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.alert {
+    border-radius: 30px;
+}
+
+/* Button styles for both Dashboard and Refresh buttons */
+.btn-dashboard, .btn-refresh {
+    background-color: #4e73df; /* A shade of blue */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners */
+    border: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: inline-flex;
+    align-items: center; /* Align the icon with the text */
+    gap: 5px; /* A little space between icon and text */
+}
+
+.btn-dashboard:hover, .btn-refresh:hover,
+.btn-dashboard:focus, .btn-refresh:focus {
+    background-color: #2e59d9; /* A slightly darker blue */
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
+}
+
+/* Optionally, you can use individual styling for different icons if needed */
+.btn-dashboard i, .btn-refresh i {
+    margin-right: 5px; /* Space between icon and text */
+}
+.btn-dashboard {
+   background-color: #4e73df; /* Blue color for the dashboard button */
+ 
+}
+
+.btn-refresh {
+    margin-right: 1rem; /* Space to the right of the refresh button */
+
+    background-color: #1cc88a; /* Green color for the refresh button */
+    
+}
+

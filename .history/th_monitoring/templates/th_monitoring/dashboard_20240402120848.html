@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Latest Data{% endblock %}
+
+{% block content %}
+
+    <style>
+        .icon-color-date { color: #007bff; } /* Blue for date */
+        .icon-color-time { color: #28a745; } /* Green for time */
+        .icon-color-temp { color: #dc3545; } /* Red for temperature */
+        .icon-color-humid { color: #17a2b8; } /* Cyan for humidity */
+        .fa-2x { font-size: 2em; margin-bottom: 0.5rem; }
+
+        .container{
+            margin-top: 10em;
+            margin-bottom: 20px;
+
+        }
+        .card-body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .card-section {
+            flex-basis: 30%; /* Slightly less than half to fit padding/margins */
+            text-align: center;
+        }
+        .card-section p {
+            margin: 0;
+            font-size: 16px;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e3e6f0;
+            font-weight: bold;
+        }
+        .margin-top-icon {
+            margin-top: 1em;
+        }
+        .card-link {
+            color: inherit;
+            text-decoration: none; /* No underline */
+        }
+        .card-link:hover {
+            text-decoration: none; /* No underline on hover */
+            color: #0056b3; /* Change color on hover */
+        }
+    </style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        {% for category, data in latest_data.items %}
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'th_monitoring:trend_page' %}?category={{ category }}" class="card-link">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            {{ category|capfirst }} Server Room
+                        </div>
+                        <div class="card-body">
+                            <div class="card-section">
+                                <i class="fas fa-calendar-alt fa-2x icon-color-date"></i>
+                                <p>{{ data.date|date:"m/d/Y" }}</p>
+                                <i class="fas fa-temperature-low fa-2x icon-color-temp margin-top-icon"></i>
+                                <p>{{ data.temperature }}°C</p>
+                            </div>
+                            <div class="card-section">
+                                <i class="fas fa-clock fa-2x icon-color-time"></i>
+                                <p>{{ data.time }}</p>
+                                <i class="fas fa-tint fa-2x icon-color-humid margin-top-icon"></i>
+                                <p>{{ data.humidity }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

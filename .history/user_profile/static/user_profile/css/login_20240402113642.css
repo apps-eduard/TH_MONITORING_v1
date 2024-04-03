@@ -1,0 +1,61 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #8c9eff; /* Adjust the color to match your branding */
+}
+
+.login-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    max-width: 900px; /* Adjust the size as needed */
+}
+
+.form-side {
+    background-color: #673ab7; /* Adjust the color to match your branding */
+    color: white;
+    padding: 30px;
+    width: 50%;
+}
+
+.user-login {
+    padding: 30px;
+    width: 50%;
+}
+
+h2, h3 {
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #673ab7; /* Adjust the color to match your branding */
+    color: white;
+    cursor: pointer;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    color: #673ab7; /* Adjust the color to match your branding */
+}

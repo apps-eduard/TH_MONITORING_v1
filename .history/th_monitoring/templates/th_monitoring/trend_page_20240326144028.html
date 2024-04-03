@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend Page</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <!-- Chart.js CDN for the chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 50vw;
+        }
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-inline {
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="centered-content">
+            <h1 class="text-center mb-4">Trend for {{ category }}</h1>
+            
+            <!-- Date range selection form -->
+            <form class="form-inline my-3" action="" method="get">
+                <input type="hidden" name="category" value="{{ category }}">
+                <div class="form-group mx-sm-3">
+                    <label for="start_date" class="sr-only">Start Date</label>
+                    <input type="date" class="form-control" id="start_date" name="start_date" value="{{ start_date }}">
+                </div>
+                <div class="form-group mx-sm-3">
+                    <label for="end_date" class="sr-only">End Date</label>
+                    <input type="date" class="form-control" id="end_date" name="end_date" value="{{ end_date }}">
+                </div>
+                <button type="submit" class="btn btn-primary mx-2">
+                    <i class="fas fa-sync-alt"></i> Update
+                </button>
+                <a href="http://localhost:8000/latest-data/" class="btn btn-secondary">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </form>
+
+            {% if data %}
+                <!-- Chart container -->
+                <div class="chart-container">
+                    <canvas id="dataChart"></canvas>
+                </div>
+            {% else %}
+                <div class="alert alert-warning" role="alert">
+                    No data available.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Chart rendering script -->
+    <script>
+        var temperatureData = [];
+        var humidityData = [];
+        var labels = [];
+
+        {% for item in data %}
+            labels.push("{{ item.date }}");
+            temperatureData.push({{ item.temperature }});
+            humidityData.push({{ item.humidity }});
+        {% endfor %}
+
+        var ctx = document.getElementById('dataChart').getContext('2d');
+        var dataChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: temperatureData,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }, {
+                    label: 'Humidity (%)',
+                    data: humidityData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!-- edit_profile.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Edit Profile</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="{% url 'user_profile:register' %}" class="btn btn-secondary btn-block">Register</a>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <a href="{% url 'user_profile:register' %}" class="btn btn-secondary btn-block">Register</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
